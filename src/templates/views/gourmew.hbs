@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="../../../public/cloud.ico">
+        <link rel="stylesheet" href="./css/styles.css">
+        <title>{{title}}</title>
+    </head>
+    <body>
+        {{> header}}
+        <center>
+            <br>
+                <img src="./gourmew.png" alt="Gourmew chef being licked~" height="240" width="270">
+        </center>
+        <p align="center">{{desc}}</p>
+        <form>
+            <input placeholder="Ingrese tags de e621!">
+            <button>Buscar</button>
+        </form>
+        <center>
+            <img>
+        </center>
+        <script>
+            const form = document.querySelector('form')
+            const search = document.querySelector('input')
+            
+            form.addEventListener('submit',(e)=>{
+                e.preventDefault()
+                fetch('http://localhost:3000/e621?=' + search.replace('/ /g','+')).then((response)=>{
+                    response.json().then((data)=>{
+                        a
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>

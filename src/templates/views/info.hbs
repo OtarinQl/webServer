@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="../../../public/cloud.ico">
+        <link rel="stylesheet" href="./css/styles.css">
+        <title>Info</title>
+    </head>
+    <body>
+        {{> header}}
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;La aplicación funciona accediendo al servicio de posicionamiento
+            de <a href="https://www.mapbox.com/"><b>Mapbox</b></a>, donde se 
+            obtiene la latitud y longitud de la ubicación deseada. Allí, se
+            pasa la información ya obtenida y se utiliza para buscar en la 
+            API de <a href="https://darksky.net/"><b>DarkSky</b></a>. Finalmente,
+            se devuelve la temperatura de la ubicación, sumado a la probabilidad
+            de lluvia y una pequeña descripción del clima. 
+        </p>
+        {{> footer}}
+    </body>
+</html>

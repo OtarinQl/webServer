@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" sizes="32x32" href="../../../public/cloud.ico">
+        <link rel="stylesheet" href="./css/styles.css">
+        <title>Weather App</title>
+    </head>
+    <body>
+        {{> header}}
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;Le damos la bienvenida a aquellos nuevos usuarios que 
+            desean hacer uso de <b>WeatherApp</b>, una página de prueba
+            que busca probar las metodologías que componen el internet.
+        </p>
+        <p>
+            Para saber acerca de qué métodos y tecnologías se utilizaron, 
+            ingrese a nuestra página de <a href="/info"><b>información</b></a>,
+            la cual documenta el proyecto.
+        </p>
+        <p>
+            Para saber acerca sobre la gente detrás del proyecto, puede 
+            ingresar a nuestro espacio donde <a href="/about"><b>detallamos 
+                quiénes somos nosotros</b></a>.
+        </p>
+        <form>
+            <input placeholder="Ingresar ciudad...">
+            <button>Buscar</button>
+        </form>
+        <p id="weather"></p>
+        <p id="info"></p>
+        {{> footer}}
+        <script>
+            const weatherForm = document.querySelector('form')
+            const search = document.querySelector('input')
+            const weather = document.querySelector('#weather')
+            const info = document.querySelector('#info')
+
+            weatherForm.addEventListener('submit', (e)=>{
+                e.preventDefault()
+                weather.textContent = 'Cargando'
+                info.textContent = '...'
+                const location = search.value
+                fetch('http://localhost:3000/weather?adress=' + encodeURI(location)).then((response)=>{
+                    response.json().then((data)=>{
+                        if(data.error){
+                            weather.textContent = 'Error'
+                            info.textContent = 'No se pudo localizar la ciudad que ingresó. Intente nuevamente.'
+                        } else {
+                            weather.textContent = data.state
+                            info.textContent = 'Temperatura: ' + data.temperature + 'C, probabilidades de lluvia: ' + data.precipitation + '%'
+                        }
+                    })    
+                })
+                console.log(location)
+            })
+        </script>
+
+    </body>
+</html>

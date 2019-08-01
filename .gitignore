@@ -1,0 +1,5 @@
+node_modules/
+src/prueba.js
+src/html.txt
+src/template/views/gourmew.hbs
+public/gourmew.png
