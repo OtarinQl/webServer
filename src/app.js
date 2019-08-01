@@ -27,8 +27,8 @@ app.use(express.static(dir))
 app.get('',(req,res)=>res.render('index', 
     {
         title:'Weather App - Home',
-        name:'Otarin Ohtome!!',
-        msg:'Gracias por venir~!'
+        name:'Otarin Ohtome',
+        msg:'Gracias por venir!'
     })
     //render básicamente hace uso de un archivo hbs y renderiza 
     //el objeto del segundo argumento.
@@ -44,7 +44,7 @@ app.get('/about',(req,res)=>res.render('about',
 app.get('/info',(req,res)=>res.render('info',
     {
         title:'Weather info',
-        name:'Otarin Ohtome'
+        name:'Otarin Ohtomeme'
     })
 )
 
@@ -73,7 +73,7 @@ app.get('/weather',(req,res)=>{
         })
     } else {
         res.send({
-            error:'Sos un pelotudo hermano'
+            error:'No se pudo localizar la localidad ingresada'
         })
     }
 }
