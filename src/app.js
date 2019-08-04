@@ -111,33 +111,3 @@ app.get('*',(req,res)=>res.render('error',{
 app.listen(port, ()=>{
     console.log('El servidor se ha iniciado.')
 })
-/* Las páginas dinámicas son aquellas que están constantemente 
-cambiando, agregando información o páginas enteras, editándolos, 
-eliminándolos, etc. */
-
-/* Las estáticas, por el contrario, no tienen forma de hacer esto,
-para agregar información en ellas tiene que hacerse manualmente, 
-reescribiendo los archivos, editando en html, etc. */
-
-/* En este caso, handlebars (hbs) nos permitirá "renderizar"
-documentos de forma "dinámica", cosa contraria que haciendo uso
-de enteramente Express solo. A su vez nos deja hacer fácilmente
-código html para reutilizar en el resto de páginas que, normalmente
-se podría hacer, aunque de forma manual. */
-
-/* Los partials básicamente son una pequeña plantilla que permiten
-mantener consistencia en nuestra página web. */
-
-/* Express funciona de la siguiente forma. Al acceder a la página web,
-este intenta de buscar algo que coincida con lo que se está ingresando,
-haciendo uso de los métodos get definidos. Debido a que definimos una
-carpeta, donde se pueda acceder a ésta y sus archivos html, Express
-primero busca algo que coincida allí. Luego, en caso de no haber
-encontrado ninguna situación que coincida, se dirige a los métodos
-get, en orden de definición. */
-
-/* Finalmente, se concluye hablando sobre Heroku y Git en nuestra
-caja de comandos. Git provee una herramienta muy fundamental, el
-control de versión (Version Control). Este nos permite tener "salvados"
-de nuestro código de acuerdo a las versiones que se han publicado allí.
- */
