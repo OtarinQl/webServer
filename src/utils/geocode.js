@@ -12,7 +12,7 @@ const geocode = (adress, callback)=>{
         (error, response)=>{
             if(error){
                 callback('Error al tratar de conectar con el servidor.', undefined)
-            } else if(!response.body.features){
+            } else if(response.body.features.length === 0){
                 callback('Error al buscar localización. Por favor, ingrésela nuevamente.', undefined)
             } else {
                 callback(undefined, {

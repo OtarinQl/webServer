@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="icon" sizes="32x32" href="../../../public/cloud.ico">
+        <link rel="icon" type="image/png" href="../../../public/cloud.ico">
         <link rel="stylesheet" href="./css/styles.css">
         <title>Weather App</title>
     </head>
@@ -27,7 +27,7 @@
             <input placeholder="Ingresar ciudad...">
             <button>Buscar</button>
         </form>
-        <p id="weather"></p>
+        <h3 id="weather"></h3>
         <p id="info"></p>
         {{> footer}}
         <script>
@@ -41,7 +41,7 @@
                 weather.textContent = 'Cargando'
                 info.textContent = '...'
                 const location = search.value
-                fetch('http://localhost:3000/weather?adress=' + encodeURI(location)).then((response)=>{
+                fetch('/weather?adress=' + encodeURI(location)).then((response)=>{
                     response.json().then((data)=>{
                         if(data.error){
                             weather.textContent = 'Error'

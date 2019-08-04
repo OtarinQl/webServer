@@ -7,6 +7,8 @@ const weathercode = require('./utils/weather.js')
 
 const app = express()
 
+const port = process.env.PORT || 3000
+
 //DEFINICIÓN DE CONSTANTES Y VARIABLES
 const dir = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'./templates/views')
@@ -36,14 +38,14 @@ app.get('',(req,res)=>res.render('index',
 
 app.get('/about',(req,res)=>res.render('about',
     {
-        title:'About',
+        title:'Acerca de',
         name:'Otarin Ohtome, again.',
     })
 )
 
 app.get('/info',(req,res)=>res.render('info',
     {
-        title:'Weather info',
+        title:'Información',
         name:'Otarin Ohtomeme'
     })
 )
@@ -58,7 +60,7 @@ app.get('/weather',(req,res)=>{
                 weathercode(data.latitude,data.longitude,
             (error, data)=>{
                 if(error){
-                    res.send({ error })
+                    res.send({ error:'Error al buscar localización.' })
                 } else {
                     res.send({
                         location: query.adress, 
@@ -95,23 +97,18 @@ app.get('/weather',(req,res)=>{
 // }))
 
 app.get('/about/*',(req,res)=>res.render('error',{
-    title:'La página que buscabas no se encuentra...',
-    msg:'Creo que te perdiste acá, amigo.',
-    name:'G0d.'
+    title:'La página que buscabas no se encuentra...'
 }))
 
 app.get('/info/*',(req,res)=>res.render('error',{
     title:'La página que buscabas no se encuentra...',
-    msg:'Posta man, no sé qué esperabas si info no tiene casi nada jsjs.',
-    name:'G0d.'
 }))
 
 app.get('*',(req,res)=>res.render('error',{
-    title:'La página que buscabas no se encuentra...',
-    name:'G0d.'
+    title:'La página que buscabas no se encuentra...'
 }))
 
-app.listen(3000,()=>{
+app.listen(port, ()=>{
     console.log('El servidor se ha iniciado.')
 })
 /* Las páginas dinámicas son aquellas que están constantemente 
